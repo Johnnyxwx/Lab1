@@ -1,0 +1,32 @@
+<%= form_with(model: movie, local: true) do |form| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name, id: :movie_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Director %>
+    <%= form.text_field :Director, id: :movie_Director %>
+  </div>
+
+  <div class="field">
+    <%= form.label :YearReleased %>
+    <%= form.number_field :YearReleased, id: :movie_YearReleased %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
